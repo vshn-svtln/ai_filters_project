@@ -33,3 +33,23 @@ class RedFilter(Filter):
         # плавно усиляет красный
         r = int(math.exp(r / 255) / math.e * 255)
         return r, g, b
+
+
+
+#Саша
+class LighteninGeer():
+
+    def __init__(self, x, y, pic):
+        self.x = x
+        self.y = y
+        self.pic = pic
+
+    def  lightening(self):
+        for i in range(self.x):
+            for j in range(self.y):
+                value = self.pic.getpixel((i, j))
+                if value < 200:
+                    new_value = value + 50
+                    self.pic.putpixel((i, j), new_value)
+
+        return self.pic.show()
